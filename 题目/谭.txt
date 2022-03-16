@@ -1,0 +1,39 @@
+CSS
+
+css盒模型了解吗
+display:none 和 visibility:hidden 和 opacity 的区别
+CSS 中 link 和@import 的区别是
+css垂直居中，不使用css3特性
+行内元素  块级元素  行内块元素
+继承元素有哪些
+
+HTML
+HTML5 有什么新特性
+常用的meta
+script 标签的 async 和defer
+css 加载是否会阻塞DOM 渲染
+src 和 href 的区别
+
+
+
+JS
+Watch 、 Computer 、 Methods 有什么区别
+去重
+var let const 区别（变量提升，暂时性死区）
+null undefined区别
+数据类型
+闭包的理解
+call apply bind
+eveneloop
+promise
+深拷贝
+tcp 协议
+v-model原理
+双向绑定
+v-for 的key值作用
+data为什么是一个函数
+vue3和vue2区别
+虚拟DOM
+路由懒加载
+vuex
+webpack常见配置

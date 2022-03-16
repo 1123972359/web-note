@@ -1,0 +1,5 @@
+Promise
+
+1、then表示异步处理成功之后，有两个参数，res成功，err失败
+
+2、catch捕获所有的promise异步处理失败、语法错误

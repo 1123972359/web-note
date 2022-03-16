@@ -1,0 +1,5 @@
+1、阻止事件冒泡
+	event.stopPropagation();
+
+2、阻止默认事件
+	event.preventDefault();

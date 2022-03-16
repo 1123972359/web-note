@@ -1,0 +1,63 @@
+值类型：undefined number boolean string symbol
+引用类型 function array object
+
+1、null是空指针object，没有指向堆的指针
+
+2、Number(null) = 0  
+     Number(undefined) = NaN => Not a Number  
+     Number({}) = NaN
+
+3、undefined 出现场景
+    var i;   // 只声明没赋值   undefined 
+    function fn(x) { console.log(x) };  fn(); // 函数没有传对应的参数 undefined 
+    let o = new Object(); console.log(o.xxx);  // 调用没有的属性 undefined 
+    let x = fn(10); x  // 函数没有返回值都是undefined 
+
+
+4、null 出现，一定跟对象有关系
+   let o = document,getElementById('xxx') // 没有的节点
+   o // null
+
+
+5、数字，js不区分整数和浮点数，所有都采用浮点数表示
+
+    数字使用64位存在栈里面
+
+    第一部分：符号位，0表示正数，1表示负数  （占1位）
+    第二部分：指数位。科学计数法 (11位)
+    第三部分：有效位   （52位）
+
+    0.1 + 0.2 !== 0.3
+     数字转成二进制存储，有效位限制了精度，存不下全部，精度损失
+
+     可采用四舍五入的方法保持小数精度
+
+6、string
+    let a = new String('xx');  实例化一个String对象，然后销毁，返回基本类型
+
+
+7、array
+    es6: 
+	every 、some 返回的都是布尔值、filter返回符合条件的数组
+
+	every：将所有项匹配，全都符合条件返回true
+	arr.every((item, index) => {
+		return item > 2;
+	})
+
+	some：将所有项匹配，只要有一个符合条件返回true
+	arr.some((item, index) => {
+		return item > 2;
+	})
+
+
+8、null && 1 === 1  // null 
+    undefined && 1===1 // undefined
+    NaN && 1===1 // NaN
+
+   let o1 = new Object();
+   o1 && 1 === 1    //  true   ，如果第一个是对象，则返回第二个操作
+   1 === 1 && o1    //  o1  
+
+
+    o1 || 1===1   // o1   如果第一个是对象，则返回第一个

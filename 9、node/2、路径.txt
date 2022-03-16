@@ -1,0 +1,5 @@
+1、__dirname	// 文件目录  // C:\Users\L\Desktop\test
+
+2、__filename	// 文件路径 // C:\Users\L\Desktop\test\node3.js
+
+3、path.resolve("./")	// 把目标目录变成当前目录

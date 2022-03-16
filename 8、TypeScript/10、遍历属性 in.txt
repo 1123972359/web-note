@@ -1,0 +1,9 @@
+in 只能用在类型的定义中，可以对枚举类型进行遍历，如下：
+
+// 这个类型可以将任何类型的键值转化为 number类型
+type TypeToNumber<T> = {
+	[key in keyof T]: number
+}
+
+keyof 返回泛型T的所有键枚举类型，key时自定义的任何变量名，中间用in链接
+外围用 [] 包裹起来

@@ -1,0 +1,82 @@
+1、v-text 与 v-html
+
+	'<h1>xxx</h1>'
+	v-text不会渲染html标签
+	v-html会渲染
+
+2、v-show 只是切换css的display属性
+
+3、v-if v-else v-else-if
+
+4、v-for
+
+5、v-on
+	@click
+	v-on:[event] 动态事件 2.6.0+
+	@click.stop
+	@click.prevent
+	@click.enter @click.13
+	@click.once
+	v-on = "{ mousedown: xxx, mouseup: xxx }" 对象写法 2.4.0+
+
+6、v-bind
+
+	v-bind:src
+	v-bind:[key] 动态绑定 2.6.0+
+	:src
+	:[key]
+	:class="{ red: isRed }"
+	:class="[classA, classB]"
+	:style="{ fontSize: size + 'px' }"
+
+7、v-model
+	
+	v-model
+	多个复选框，绑定一个数组；单个复选框，绑定一个布尔值
+	v-model.lazy  失去焦点之后实现
+	v-model.number
+	v-model.trim	自动过滤首尾空白字符
+
+8、v-slot
+
+	新版本只能写在template上面：<template v-slot:header="" >
+
+9、v-pre 
+
+	<span v-pre>{{ hello }}</span> // {{ hello }}
+	静态、不编译
+
+10、v-cloak
+
+	解决屏幕闪动的问题
+
+	<div id="app" v-cloak>
+		{{ context }}
+	</div>	
+
+	需要配合css: 
+		
+	[v-cloak] {
+		display: none;
+	}
+
+11、自定义指令
+
+	directives: {
+		focus: {
+			bind: function (el, binding, vnode) {
+				// 指令第一次绑定到元素当中
+				// el.value
+				// binding.name
+				// binding.value
+				// binding.arg
+			},
+			inserted: function(el) {
+				el.focus()
+			},
+			update: function (el, binding, vnode) {
+				// 内容更新的时候调用
+				// binding.oldValue // 指令绑定的前一个值
+			}
+		}
+	}

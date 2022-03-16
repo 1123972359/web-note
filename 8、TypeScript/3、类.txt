@@ -1,0 +1,46 @@
+1、访问修饰符
+
+class Boy {
+	constructor(name: string) {
+		this.name = name;
+	}
+	name: string
+	public run() { } // 默认是public 类 ✔ 子类 ✔ 类的实例 ✔
+	private pri() { } // 类 ✔ 子类 × 类的实例 ×
+	protected pro(){} // 类 ✔ 子类 ✔ 类的实例 ×
+	readonly legs: number = 4 // 只读，不能被更改
+	static food: string = "bones" // 只能通过类名调用，可以被继承
+}
+
+
+2、抽象类
+
+// 抽象类只能被继承，不能被实例化
+abstract class Animal {
+	eat() {
+
+	}
+	abstract sleep(): void; // 抽象方法，只定义方法的名称和返回值，不定义方法的具体内容
+	abstract i: number;
+}
+
+
+3、接口和类的继承
+
+interface Human {
+	name: string;
+	eat(): void
+}
+
+// implements 是类实现多接口
+class Asian implements Human {
+	constructur(name: string) {
+		this.name = name;
+	}
+	name = 'aa';
+	eat() {
+		console.log('aa');
+	}
+}
+
+

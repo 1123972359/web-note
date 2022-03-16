@@ -1,0 +1,9 @@
+keyof 可以获取一个类型所有的键值，返回一个联合类型：
+
+type Person = {
+	name: string;
+	age: number
+}
+
+type personKey = keyof person;
+// keyof person 等价于 'name' | 'age'

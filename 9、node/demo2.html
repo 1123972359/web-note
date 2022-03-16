@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="app">
+    <button @click="getUser">getUser</button>
+    <button @click="getZzh">getZzh</button>
+    <button @click="addUser">addUser</button>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>名字</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, i) of list" :key="item.id">
+                    <td>{{ item.name }}</td>
+                    <td @click="deleteUser(item.id)">删除</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<body>
+    <script crossorigin="anonymous"
+        integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw=="
+        src="https://lib.baomitu.com/vue/2.6.12/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    list: []
+                }
+            },
+            methods: {
+                getUser() {
+                    axios.get('http://localhost:3000/getUser')
+                        .then(res => {
+                            this.list = res.data;
+                        })
+                },
+                getZzh() {
+                    axios.get('http://localhost:3000/getZzh')
+                        .then(res => {
+                            this.list = res.data;
+                        })
+                },
+                addUser() {
+                    const arr1 = ['张', '刘', '林', '王'];
+                    const arr2 = ['三', '四', '五', '六'];
+                    let data =
+                        `name=${arr1[Math.floor(Math.random() * 4)] + arr2[Math.floor(Math.random() * 4)]}`
+                    axios.post('http://localhost:3000/addUser', data)
+                        .then(res => {
+                            console.log(res);
+                            this.getUser();
+                        })
+                },
+                deleteUser(id) {
+                    const data = `id=${id}`;
+                    axios.post('http://localhost:3000/deleteUser', data)
+                        .then(res => {
+                            console.log(res);
+                            this.getUser();
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

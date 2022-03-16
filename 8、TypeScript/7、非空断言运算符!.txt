@@ -1,0 +1,6 @@
+这个运算符可以用在变量名或者函数名之后，用来强调对应的元素是非 null | undefined 的
+
+const a: number | undefined | null = undefined;
+const b: number = a!; // a排除了null | undefined
+
+cosnt num = getNumber!(); // 调用函数时忽略undefined类型

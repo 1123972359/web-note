@@ -1,0 +1,28 @@
+第一阶段 初始化渲染
+
+    componentWillMuount
+        组件将要挂载（将要插入虚拟dom）
+    render
+        渲染（插入虚拟dom）
+    componentDidMount
+        已经插入虚拟dom（页面的真实dom已经生成）
+
+第二阶段 更新
+
+    setState
+        会进入下一个更新的过程（消耗高）
+    componentWillUpdate
+        即将更新
+    componentDidUpdate
+        已经更新完毕
+    shouldComponentUpdate
+        判断
+    componentWillReceiveprops
+        组件即将接收到组件props属性
+
+第三阶段 移除
+
+    ReactDom.unmountComponentAtNode
+        移除组件
+    componentWillUnmount
+        将要移除

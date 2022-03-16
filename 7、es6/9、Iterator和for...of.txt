@@ -1,0 +1,13 @@
+遍历器Iterator它是一种接口，任何数据结构，只要部署了这个接口，就可以完成遍历操作
+当使用for...of循环遍历时，该循环就会自动去 寻找Iterator接口。
+
+ES6规定，默认的iterator接口部署在数据结构的Symbol.iterator属性，一个数据结构只要有
+Symbol.Iterator属性，就可以是“可遍历的”。
+
+原生具备Iterator接口的数据结构有：
+Array
+Map
+Set
+String
+函数的arguments对象
+NodeList对象

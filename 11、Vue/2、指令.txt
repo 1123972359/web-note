@@ -1,0 +1,60 @@
+1、v-text 与 v-html
+
+	'<h1>xxx</h1>'
+	v-text不会渲染html标签
+	v-html会渲染
+
+2、v-show 只是切换css的display属性
+
+3、v-if v-else v-else-if
+
+4、v-for
+
+5、v-on
+	@click
+	v-on:[event] 动态事件 2.6.0+
+	@click.stop
+	@click.prevent
+	@click.enter @click.13
+	@click.once
+	v-on = "{ mousedown: xxx, mouseup: xxx }" 对象写法 2.4.0+
+
+6、v-bind
+
+	v-bind:src
+	v-bind:[key] 动态绑定 2.6.0+
+	:src
+	:[key]
+	:class="{ red: isRed }"
+	:class="[classA, classB]"
+	:style="{ fontSize: size + 'px' }"
+
+7、v-model
+	
+	v-model
+	
+8、自定义指令
+
+	使用Vue.directive('name',{})定义全局指令。
+
+	Vue.directive('color-swatch',function(el,binding){
+     		el.style.backgroundColor = binding.value;
+	});
+
+            //每个钩子函数的第一个参数永远是el,表示绑定这个指令的当前元素,是个原生的js对象
+            Vue.directive('focus',{
+                //每当指令绑定到元素身上的时候,会立即执行这个bind函数,只执行一次
+                bind(el){   
+                    //元素刚绑定了指令的时候,还没插入dom中,直接操作元素没用
+                    //只有元素插入到dom中时,才能获取焦点,写在inserted中
+                    //el.foucus();
+                },
+                //表示元素插入到dom中的时候,会执行inserted函数,触发一次
+                inserted(el){  
+                    el.focus();
+                },
+                //当VNode跟新的时候,会执行updated函数,可能会触发多次
+                updated(){   
+                    
+                }
+            });

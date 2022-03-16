@@ -1,0 +1,20 @@
+class Car {
+    constructor(color){
+        this.color = color;
+    }
+}
+
+
+class BMW extends Car {
+    constructor(color){
+        super(color);
+    }
+    run(){
+        console.log(`${this.color} is running`);
+    }
+}
+
+
+new BMW('红色').run();
+
+// 红色 is running

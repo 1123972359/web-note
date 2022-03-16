@@ -1,0 +1,40 @@
+1、浅拷贝和深拷贝都只针对于引用类型
+
+2、浅拷贝：只复制指向某个对象的指针，不复制对象本身，新旧对象还是共享同一块内存
+
+3、深拷贝：会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象
+
+4、区别：浅拷贝只复制对象的第一层属性。深拷贝可以 对 对象的属性进行 递归复制。
+
+5、浅拷贝
+	（1）var obj3 = Object.assign({}, obj1);
+	
+	（2）	funcion simpleCopy (obj1) {
+			var obj2 = Array.isArray(obj1) ? [] : {};
+			for (let i in obj1) {
+				obj2[i] = obj1[i];
+			}
+			return obj2
+		}
+
+6、深拷贝
+	(1)	function deepCopy (obj) {
+			var obj2 = Array.isArray(obj) ? [] : {};
+			if (obj && typeof obj === 'object') {
+				for (let i in obj) {
+					if (obj.hasOwnProperty(i)) {
+						if (obj[i] && typeof obj[i] === 'object') {
+							obj2[i] = deepCopy(obj[i]);
+						} else {
+							obj2[i] = obj[i];
+						}
+					}
+				}
+			}
+			return obj2;
+		}
+
+	（2）let obj2 = JSON.parse(JSON.stringify(obj1))
+		缺点：函数和正则不能实现
+
+

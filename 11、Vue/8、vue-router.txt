@@ -1,0 +1,19 @@
+1、传参方式
+
+	(1) 写在地址后面传参
+		'users/login?id=19'
+
+	(2) 配置传值
+
+		{ path: '/users/:name/:age' }
+		
+		/users/zzh/19
+
+
+
+
+2、获取参数
+
+	(1) $route.query.id
+
+	(2) $route.params.name

@@ -1,0 +1,22 @@
+值1 ?? 值2
+
+1、使用??时，只有当 值1为 null 或 undefined 时才返回 值2
+
+undefined ?? 2 	// 2
+null ?? 2		// 2
+0 ?? 2		// 0
+"" ?? 2		// ""
+true ?? 2		// true
+false ?? 2		// false
+
+
+
+值1 || 值2
+2、使用 || 时，值1 会转换为布尔值判断，为true返回 值1，false 返回 值2
+
+undefined || 2 	// 2
+null || 2		// 2
+0 || 2		// 2
+"" || 2		// 2
+true || 2		// true
+false || 2		// 2

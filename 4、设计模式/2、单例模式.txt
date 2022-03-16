@@ -1,0 +1,12 @@
+class Person {
+	static intance = null;
+	static getIntance() {
+		if(this.intance === null){
+			Person.intance = new Person();
+		}
+		return Person.intance;
+	}
+}
+
+let p1 = Person.getIntance();
+let p2 = Person.getIntance();

@@ -1,0 +1,7 @@
+class log<T>{
+	run(value: T): T {
+		return value;
+	}
+}
+
+let log1 = new log<number>();

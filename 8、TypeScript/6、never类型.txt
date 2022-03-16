@@ -1,0 +1,8 @@
+never是指没法正常结束返回的类型，一个必定会报错或者死循环的函数会返回这样的类型。
+
+function foo () : never { throw new Error('error message') } // throw error
+
+function foo(): never { while(true){} }  // 这个死循环的也会无法正常退出
+
+never是任何类型的子类型。并且可以赋值给任何类型，其他类型不能赋值给never类型，除非
+never类型本身。

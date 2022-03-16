@@ -1,0 +1,9 @@
+有四个操作会忽略 enumerable 为 false 的属性：
+
+1、for...in 循环：只遍历 对象自身的 和 继承的可枚举属性。
+
+2、Object.keys()：返回 对象自身的所有可枚举的属性的键名。
+
+3、JSON.stringify()：只串行化 对象自身的可枚举的属性。
+
+4、Object.assign()：忽略 enumerable 为 false 的属性，只拷贝 对象自身的可枚举的属性。

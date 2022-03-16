@@ -1,0 +1,19 @@
+const express = require('express')
+const app = express();
+
+app.all('*', (req, res, next) => {
+    res.header('Assess-Control-Allow-origin', '*');
+    next();
+})
+
+app.get('/', (req, res) => {
+    res.end('ok')
+})
+
+app.get('/index', (req, res) => {
+    res.end('index ok')
+})
+
+app.listen(4000, () => {
+    console.log('启动成功');
+});

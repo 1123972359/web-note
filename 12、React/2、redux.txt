@@ -1,0 +1,4 @@
+跟react没有任何关系
+
+
+Store -> dispatch -> Action -> Reducer处理 -> 更新

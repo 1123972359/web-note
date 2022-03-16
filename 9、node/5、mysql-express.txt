@@ -1,0 +1,45 @@
+const express = require('express')
+const mysql = require('mysql')
+const bodyParser = require('body-parser')
+const app = express();
+
+app.all('*', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        "Access-Control-Allow-Headers",
+        " Origin, X-Request-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS")
+    res.header("X-Powered-By", " 3.2.1")
+    res.header("Content-Type", "application/json;charset=utf-8")
+    next();
+})
+
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+
+app.use(bodyParser.json())
+
+app.get('/getUser', (req, res) => {
+    const sql = "SELECT * FROM user";
+    const connect = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '123456',
+        database: 'test'
+    })
+    connect.connect();
+    connect.query(sql, (err, data) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(data);
+        }
+    })
+    connect.end();
+})
+
+app.listen(3000, function () {
+    console.log('http://localhost:3000/ is running');
+})

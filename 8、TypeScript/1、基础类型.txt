@@ -1,0 +1,39 @@
+1、任意类型 any	let s: any = 'hello' // 声明为any的变量可以赋值任意类型的值
+
+2、数字类型 number	let i: number = 123;
+
+3、字符串类型 string	let s: string = 'zzh'
+
+4、布尔类型 boolean	let b: boolean = true
+
+5、枚举类型 enum
+	enum Color {
+		Red,
+		Green,
+		Blue
+	}
+	let c: Color = Color.Red
+
+6、void	
+	function hello(): void {
+		alert('hello'); // 用于标识方法返回值类型，表示该方法没有返回值
+	}
+
+7、null 	let a: null = null;
+
+8、undefined	let b: undefined = undefined
+
+9、多类型赋值
+	let c: number | string | null = 1;
+
+10、数组
+	arr: Array<number | string> = [1, '1'];
+	arr: [number, string] = [1, '1'];
+
+
+11、class Person {}
+       let p: Person = new Person();
+
+
+
+

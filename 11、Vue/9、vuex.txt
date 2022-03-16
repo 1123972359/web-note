@@ -1,0 +1,55 @@
+1、引入方式
+
+	(1) this.$store.state
+
+	(2) mapState
+
+		import { mapState } from 'vuex'
+
+		computed: mapState( [ 'count' ] )
+
+	(3) mapGetters
+
+		getters: {
+			count(state) {
+
+			}
+		}
+
+		import { mapGetters } from 'vuex'
+
+		computed: mapGetters( [ 'count' ] )
+
+
+2、提交变化
+
+	第一步，提交一个操作 dispatch
+
+		actions: {
+			addCount ( { commit, state } ) {
+				commit("ADDCOUNT"); // 提交到mutations
+			}
+		}
+
+	第二🙅步，处理逻辑 commit
+
+		mutations: {
+			ADDCOUNT ( state ) {
+				state.count++;
+			}
+		}
+
+
+	第三步，页面使用
+
+		import { mapActions } from 'vuex'
+
+		methods: mapActions ( [ 'addCount' ] )
+
+
+
+
+
+
+
+

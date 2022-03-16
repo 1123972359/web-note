@@ -1,0 +1,15 @@
+const http = require('http');
+const url = require('url');
+const path = require('path');
+
+const server = http.createServer((req, res) => {
+    res.setHeader('Assess-Control-Allow-origin', '*');
+    let urlObj = url.parse(req.url);
+    if (urlObj.pathname === '/') {
+        res.end('ok')
+    } else {
+        res.end('err')
+    }
+})
+
+server.listen(3000);

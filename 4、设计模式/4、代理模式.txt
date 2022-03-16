@@ -1,0 +1,36 @@
+class AD {
+    constructor(price){
+        this.price = price;
+    }
+}
+
+
+class ass {
+    static judge (ad){
+        let money = ad.price;
+        if(money > 3000){
+            star.get(money);
+        }else{
+            star.reject(money);
+        }
+    }
+}
+
+
+class star {
+    static get(money){
+        console.log(money + '元，接了');
+    }
+
+    static reject(money){
+        console.log(money + '元，太抠了，拒绝');
+    }
+}
+
+
+ass.judge(new AD(4000));
+// 4000元，接了
+
+
+ass.judge(new AD(400));
+// 400元，太抠了，拒绝

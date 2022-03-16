@@ -1,0 +1,11 @@
+1、for...in for...of 不能遍历Symbol类型的属性
+
+	解决方法：
+		1、Object.getOwnPropertySymbol()
+
+		2、Reflect.ownKeys
+
+
+2、Symbol.for  可以使用同一个Symbol值。
+
+3、Symbol.keyFor 返回一个已登记的Symbol类型的key

@@ -1,0 +1,31 @@
+... 使用对象必须包含的特点：数字索引、length、Symbol.Iterator
+
+
+	任何 Iterator 接口对象，都可以利用拓展运算符转为真正的数组，在ES6中，有三类数据结构具有原生
+具备 Iterator 接口：数组、某些类似数组的对象、Set 和 Map 结构。ES6规定，默认的 Iterator 接口部署在数据
+结构的 Symbol.Iterator 属性，或者说，一个数据结构只要具有 Symbol.Iterator 属性，就可以认为是“可遍历的”
+（iterable）。Symbol.Iterator 属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。
+
+
+P.S. 字符串也是类数组对象
+
+1、数组
+
+2、类数组对象
+
+	实现方式一：
+		let a = {
+			0: "a",
+			1: "b",
+			2: "c",
+			3: "d",
+			length: 4,
+			[Symbol.iterator]: Array.prototype[Symbol.iterator]
+		}
+
+	实现方式二：
+		Array.form() // 必须类数组对象、可遍历对象，包括 set map
+
+
+3、set、map
+

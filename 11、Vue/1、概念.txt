@@ -1,0 +1,1 @@
+Vue和react都是单向数据流，只不过Vue有双向绑定的功能而已(v-model)

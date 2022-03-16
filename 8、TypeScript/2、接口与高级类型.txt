@@ -1,0 +1,105 @@
+1、接口
+interface IPerson {
+	name: string,
+	age: number,
+	sayHi: () => string
+}
+
+let Chinese: IPerson = {
+	name: 'aa',
+	age: 20,
+	sayHi() {
+		return 'hello';
+	}
+}
+
+
+2、接口描述函数
+
+interface IFunc {
+	(x: number, y:number): number // 参数类型、方法返回值都为number
+}
+
+let fn2: IFunc = function (a: number, b:number): number {
+	return a + b;
+}
+
+
+3、接口继承
+
+interface iFun1 {
+	age: number
+}
+
+inter iFun2 extends iFun1 {
+	name: string
+}
+
+
+
+4、联合类型 (需要实现所有属性)
+
+interface A {
+	name: string,
+	age: number,
+}
+
+interface B {
+	name: string,
+	sex: string
+}
+
+let a: A & B;
+
+a = {
+	name: '1',
+	age: 2,
+	sex: '3'
+}
+
+5、交叉类型 (至少满足一个)
+interface A {
+	name: string,
+	age: number,
+}
+
+interface B {
+	name: string,
+	sex: string
+}
+
+let a: A | B;
+a = {
+	name: '1',
+	age: 2,
+}
+
+
+
+6、 类型别名：是可以给一个类型起一个新的名字
+type strType = string | number | boolean;
+var str: strType = "10";
+str = true
+
+
+7、typescript函数
+
+// 基本用法
+function add1(x: number, y: number) {
+	return x + y;
+}
+
+// 可选参数 // 要写在最后一个参数，不能放在x, y 前面
+function add2(x: number, y: number, z?: number) {
+	return z ? x + y + z : x + y;
+}
+
+// 参数默认值
+function add3(x: number, y = 0, z: number, q = 1) {
+	return x + y + z + q;
+}
+
+// 剩余参数
+function add4(x: number, ...rest: number[]) {
+	return x + rest.reduce((pre, cur) => pre + cur);
+}

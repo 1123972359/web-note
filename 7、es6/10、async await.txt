@@ -1,0 +1,13 @@
+async函数
+
+async 就是 Generator 函数的语法糖。
+
+async：
+	返回的是一个Promise。无论函数里是否有await操作
+	函数内部return返回的值，会成为then回调函数的参数
+	如果函数内部出现了错误，会被then的第二个函数或者catch接收
+
+await：
+	只能出现在async函数内，普通函数内不可以使用
+	正常情况下，await后面跟Promise对象，返回对象结果
+	如果后面跟的不是Promise对象，直接返回对应的值

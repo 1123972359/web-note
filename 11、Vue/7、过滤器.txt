@@ -1,0 +1,17 @@
+filters
+
+对元素进行一个过滤操作
+
+{{ mag|format }}
+
+filters: {
+	format(value) {
+		return value.replace()
+	}
+}
+
+全局过滤器
+
+Vue.filters('format', (value) => {
+	return value.replace()
+})

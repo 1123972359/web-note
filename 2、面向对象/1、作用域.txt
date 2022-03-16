@@ -1,0 +1,18 @@
+作用域生效的地方
+
+1、<script></script>
+
+2、函数调用的时候才会发生
+函数声明：
+     function test(){}     
+函数调用：
+     test(); 
+
+
+3、js预解析
+	- 开辟空间
+	- 寻找var 、方法参数、function 
+	   有var 和方法参数的话，变量赋值位undefined
+	- js逐行执行
+
+

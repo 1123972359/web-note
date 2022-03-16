@@ -1,0 +1,70 @@
+1、全局的方法里面，this指向window
+	严格模式下，this 是 undefined
+
+2、如果函数调用前存在多个对象，this 指向距离最近调用自己的对象
+	var obj1 = { func: fn1  }
+	var obj2 = { o: obj1  }
+	obj2.o.func     // this 指向 obj1
+
+3、箭头函数下，this 取决于 外层作用域
+
+
+4、call   A.call(obj)  // 使用call方法把this指向obj对象
+	传参：a.say.call(window, '小红', '清华')
+
+5、apply   A.apply(obj)  // 使用apply方法把this指向obj对象
+	传参：a.say.call(window, ['小红', '清华'])
+
+6、bind  A.bind(obj)  // 使用bind方法把this指向obj对象
+	传参：a.say.bind(window)('小红', '清华')
+
+7、call 继承
+	function Class1(){
+		this.showTxt = function (txt) {
+			alert(txt)
+		}
+	}
+
+	Class1.prototype.a = 1;
+
+	function Class2(){
+		Class1.call(this);   // 把Class1 放到 Class2 的this 上用 
+	}
+
+	var c2 = new Class2();
+	c2.showTxt('cc');
+
+
+8、call 继承 只能 继承 对象上面的属性、方法
+	原型上面的对象方法不行
+
+	所以： Class2.prototype = Class1.prototype
+
+	var c2 = new Class2();
+
+	c2的原型上面就有 a 属性了
+
+
+9、es6 Class 继承
+
+	Class A{
+		constructor(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		sayHi() {  // 相当于原型对象上面的方法
+			console.log(this.name, this.age);
+		}
+	}
+
+	Class B extends A {
+		constructor (name, age, sex) {
+			super(name, age);   // 继承的时候，要加上 super ，super就相当于父类(A)的构造方法 constructor
+		}
+	}
+
+
+10、继承的好处
+
+	增强代码的复用性，把公共的代码集中放置，其他类想要用，直接继承

@@ -1,0 +1,30 @@
+class dalu {
+    small(){
+        console.log('小');
+    }
+}
+
+
+class hongkong {
+    big () {
+        console.log('大');
+    }
+}
+
+
+class Ad {
+    constructor(hongkong){
+        super();
+        this.hongkong = hongkong;
+    }
+
+    small(){
+        this.hongkong.big();
+    }
+}
+
+
+let hk = new hongkong()
+
+new Ad(hk).small()
+// 大

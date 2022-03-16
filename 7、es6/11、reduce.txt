@@ -1,0 +1,16 @@
+arr.reduce( function (pre, cur, index, arr) {}, init )
+
+arr 	原数组
+pre 	上一次调用回调的时候的返回值，或者 初始值
+cur	当前正在处理的数组元素
+index	当前正在处理的数组元素的索引
+init	初始值
+
+1、没有初始值的时候，第一次执行，pre = 1, cur = 2
+
+	var arr = [1,2,3,4,5]
+	var sum = arr.reduce((pre, cur) => {
+		return pre + cur
+	})
+
+2、有初始值的时候，第一次执行，pre = 初始值, cur = 1

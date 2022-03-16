@@ -1,0 +1,39 @@
+class F {
+    constructor(){
+        this.map = new Map();
+    }
+
+    add(key, val){
+        this.map.set(key, val);
+    }
+
+    fire(name, price){
+        for(let val of this.map.values()){
+            console.log(name + '：')
+            val(price);
+        }
+    }
+}
+
+
+let f = new F()
+
+f.add('渣渣辉', function(price){
+    console.log(price);
+})
+
+
+f.fire('渣渣辉', 8000)
+
+// 渣渣辉：
+// 8000
+
+
+f.add('古天乐', function(price){
+    console.log(price);
+})
+
+// 古日安乐：
+// 8000
+// 古日安乐：
+// 8000

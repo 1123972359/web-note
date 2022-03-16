@@ -1,0 +1,95 @@
+Proxy可以理解成在目标对象前架设一个“拦截”层，外界对该对象的访问必须先通过这层拦截
+
+1、拦截
+
+let obj = new Proxy(
+    {}, // 目标对象
+    {
+        get(target, key){
+            console.log(target, 'get !!!');
+            return 13;
+        },
+        set(target, key, val){
+            console.log(target, 'set !!!');
+        }
+    }
+)
+
+2、apply 拦截：函数调用、call 和 apply 操作
+
+	apply(target, ctx, args) { }
+
+	例子：
+
+	let t = {
+    		apply(target, ctx, args){
+        			console.log(target);
+       			console.log(ctx);
+        			console.log(args);
+        			return Reflect.apply(...arguments) * 2;
+    		}
+	}
+
+	function sum(a, b){
+    		return a + b;
+	}
+
+	let p = new Proxy(sum, t);
+	p(1,2); // 6
+	p.call(null, 1, 2);
+	p.apply(null, [1, 2]);
+
+
+
+3、construct()
+
+	construct 方法用于拦截 new 命令，construct 方法返回必须有个对象
+
+	let p = new Proxy(function () {},  {
+		construct: function (target, args) {
+			console.log('aaa');
+			return { value: args[0] * 10 }
+		}
+	});
+
+	new p(1).value;
+
+
+4、deleteProperty()
+
+	deleteProperty 方法拦截 delete 操作，如果这个方法抛出错误或者返回false，当前属性就无法被delete命令删除
+
+	deleteProperty(target, key) {
+		delete target[key];
+		return true;
+	}
+
+
+5、definedProperty()
+
+	definedProperty方法拦截了 Object.definedProperty操作.
+
+
+
+6、getPrototypeOf()
+
+	getPrototypeOf方法主要用于拦截对象原型。拦截以下操作：
+
+	Object.prototype.__proto__
+	Object.prototype.isPrototypeOf()
+	Object.getPrototypeOf()
+	Reflect.getPrototypeOf()
+	intanceof
+
+7、ownKeys()
+
+	ownKeys 方法用于拦截自身属性的读取操作。拦截以下操作：
+
+	Object.getOwnPropertyNames()
+	Object.getOwnPropertySymbols()
+	Object.keys()
+
+
+8、setPrototypeOf()
+
+	setPrototypeOf方法用于来拦截 Object.setPrototypeOf 方法
